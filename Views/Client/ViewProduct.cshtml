@@ -1,0 +1,51 @@
+﻿@model Emarketing.Models.tbl_product
+
+@{
+    ViewBag.Title = "View Product";
+}
+
+<h2>Product Details</h2>
+<style>
+    td {
+        padding: 20px;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <img src="~/Content/img/14560020750060463280.png" class="img img-responsive" style="width:100%" />
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-2 col-md-2">
+        <img src="~/Content/img/adlisting2.gif" class="img img-responsive" style=" height:500px;" />
+    </div>
+
+
+
+    <div class="col-lg-8 col-md-8">
+
+        <div>
+            <h1>@Model.pro_name <small>AD-ID:@Model.pro_id</small></h1>
+        </div>
+
+        <img src="@Url.Content(@Model.pro_image)" style="width:800PX; height:450PX" />
+
+        <div>
+            <h1>Description: </h1>
+            <p>@Model.pro_des</p>
+        </div>
+
+        <div>
+            <h4>Product ID: @Model.pro_id</h4>
+            <h4>Name: @Model.pro_name</h4>
+            <h4>Description: @Model.pro_des</h4>
+            <h4>Price: @Model.pro_price</h4>
+            <h4>Category: @Model.tbl_category.cat_name</h4>
+            <h4>User: @Model.tbl_user.u_name</h4>
+        </div>
+
+        <p>
+            @Html.ActionLink("Back to Products", "Products")
+        </p>

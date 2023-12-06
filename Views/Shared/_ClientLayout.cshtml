@@ -1,0 +1,41 @@
+﻿<!-- _ClientLayout.cshtml -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .na {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Your Brand</a>
+            </div>
+            <ul class="nav navbar-nav">
+                
+                <li>@Html.ActionLink("Category", "Index", "Client")</li>
+                <li>@Html.ActionLink("Login", "Login", "Client")</li>
+                <li>@Html.ActionLink("Sign Up", "SignUp", "Client")</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="content">
+        @RenderBody()
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+    </div>
+
+</body>
+</html>

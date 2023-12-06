@@ -1,0 +1,39 @@
+﻿@using PagedList.Mvc
+@model IEnumerable<Emarketing.Models.tbl_product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>User</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.pro_id</td>
+                <td>@product.pro_name</td>
+                <td>@product.pro_des</td>
+                <td>@product.pro_price</td>
+                <td>@product.tbl_category.cat_name</td>
+                <td>@product.tbl_user.u_name</td>
+                <td>
+                    @Html.ActionLink("View", "ViewProduct", new { id = product.pro_id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Purchase", "PurchaseProduct", new { id = product.pro_id }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model Emarketing.Models.tbl_product
+
+@{
+    ViewBag.Title = "Purchase Product";
+}
+
+<h2>Purchase Product</h2>
+
+{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <p>Please <a href="@Url.Action("Login", "Client")">log in</a> to purchase this product.</p>
+    }
+    else
+    {
+        <div>
+            <h4>Product ID: @Model.pro_id</h4>
+            <h4>Name: @Model.pro_name</h4>
+            <h4>Description: @Model.pro_des</h4>
+            <h4>Price: @Model.pro_price</h4>
+            <h4>Category: @Model.tbl_category.cat_name</h4>
+            <h4>User: @Model.tbl_user.u_name</h4>
+        </div>
+
+        using (Html.BeginForm("PurchaseProduct", "Client", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.pro_id)
+
+            <p>
+                Are you sure you want to purchase this product?
+            </p>
+
+            <button type="submit">Purchase</button>
+        }
+
+        <p>
+            @Html.ActionLink("Cancel", "Products")
+            }
+            }
+        </p>
